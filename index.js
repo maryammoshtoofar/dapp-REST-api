@@ -4,6 +4,7 @@ const API_URL = process.env.API_URL;
 const ERC20_ADMIN_WALLET = process.env.ERC20_ADMIN_WALLET;
 const DAPP_TOKEN_CONTRACT = process.env.DAPP_TOKEN_CONTRACT;
 const GENEALOGY_CONTRACT = process.env.GENEALOGY_CONTRACT;
+const TOKEN_FARM_CONTRACT = process.env.TOKEN_FARM_CONTRACT;
 const ABI = {
   dappToken: require("./ABI/tokenAbi.json"),
   genealogy: require("./ABI/genealogyAbi.json"),
@@ -21,6 +22,7 @@ const genealogyContract = new web3.eth.Contract(
   ABI.genealogy,
   GENEALOGY_CONTRACT
 );
+const stakeContract = new web3.eth.Contract(ABI.tokenFarm, TOKEN_FARM_CONTRACT);
 const express = require("express");
 const app = express();
 app.use(express.json());
@@ -37,7 +39,7 @@ app.post("/transfer", async (req, res) => {
 
 // Bonuses
 
-app.post("/binarybonus", async (req, res) => {
+app.post("/binary-bonus", async (req, res) => {
   try {
     const gas = await genealogyContract.methods
       .binaryBonus()
@@ -54,7 +56,7 @@ app.post("/binarybonus", async (req, res) => {
   }
 });
 
-app.post("/unilevel", async (req, res) => {
+app.post("/uni-level", async (req, res) => {
   const { amount, id } = req.body;
   try {
     const gas = await genealogyContract.methods
@@ -71,6 +73,20 @@ app.post("/unilevel", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+app.post("/calculate-reward", async (req, res) => {
+  try {
+    await stakeContract.methods
+      .calculateTotalReward(amount, id)
+      .call()
+      .then((res) => {
+        result = res;
+      });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
