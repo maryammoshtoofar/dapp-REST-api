@@ -74,11 +74,32 @@ app.post("/uni-level", async (req, res) => {
   }
 });
 
-app.post("/calculate-reward", async (req, res) => {
+app.post("/calculate-rewards", async (req, res) => {
   try {
+    const gas = await stakeContract.methods
+      .calculateRewards()
+      .estimateGas({ from: wallet.address });
+
     await stakeContract.methods
-      .calculateTotalReward(amount, id)
-      .call()
+      .calculateRewards()
+      .send({ from: wallet.address, gas: gas })
+      .then((res) => {
+        result = res;
+      });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+app.post("/issue-rewards", async (req, res) => {
+  try {
+    const gas = await stakeContract.methods
+      .IssueRewards()
+      .estimateGas({ from: wallet.address });
+
+    await stakeContract.methods
+      .IssueRewards()
+      .send({ from: wallet.address, gas: gas })
       .then((res) => {
         result = res;
       });
