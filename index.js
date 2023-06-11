@@ -35,7 +35,7 @@ app.post("/transfer", async (req, res) => {
   }
 });
 
-// Genealogy Bonuses
+// Bonuses
 
 app.post("/binarybonus", async (req, res) => {
   try {
@@ -45,6 +45,24 @@ app.post("/binarybonus", async (req, res) => {
 
     await genealogyContract.methods
       .binaryBonus()
+      .send({ from: wallet.address, gas: gas })
+      .then((res) => {
+        result = res;
+      });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+app.post("/unilevel", async (req, res) => {
+  const { amount, id } = req.body;
+  try {
+    const gas = await genealogyContract.methods
+      .updateUplinesUniLevelRewards(amount, id)
+      .estimateGas({ from: wallet.address });
+
+    await genealogyContract.methods
+      .updateUplinesUniLevelRewards(amount, id)
       .send({ from: wallet.address, gas: gas })
       .then((res) => {
         result = res;
