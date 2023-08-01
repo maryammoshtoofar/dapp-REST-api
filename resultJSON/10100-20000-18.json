@@ -1,0 +1,67 @@
+{
+    "result": {
+        "blockHash": "0xd6b8be17b11c4f9d72e3ec4029dd8c935ca3fc6dbcd576ca78de1e95fa09afa3",
+        "blockNumber": 4005215,
+        "contractAddress": null,
+        "cumulativeGasUsed": 1904531,
+        "effectiveGasPrice": 2504512469,
+        "from": "0xabea024304ec00c4a6c713a5ad82326df9988179",
+        "gasUsed": 1883531,
+        "logsBloom": "0x00000000000000100000000000000000000000000000000008800000000000000000000000000000000000000000000080000000000000000000400000000000008000000000000000000000000000000001000000000000000000002000000000000000420000000000000000000800000000000000000000040000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000080000000000080000100000000000000000000000008000",
+        "status": true,
+        "to": "0xefec0576f992fd13fe9da328ae6ad807c0ece4c0",
+        "transactionHash": "0x5f92511b6048ffc0e2f54f2421c0d75118e5502acd8ccef8637bbde9278663ec",
+        "transactionIndex": 1,
+        "type": "0x2",
+        "events": {
+            "OwnershipTransferred": {
+                "address": "0xd08dC31339A0D4890117819e5dceC7b5d0C0438E",
+                "blockNumber": 4005215,
+                "transactionHash": "0x5f92511b6048ffc0e2f54f2421c0d75118e5502acd8ccef8637bbde9278663ec",
+                "transactionIndex": 1,
+                "blockHash": "0xd6b8be17b11c4f9d72e3ec4029dd8c935ca3fc6dbcd576ca78de1e95fa09afa3",
+                "logIndex": 0,
+                "removed": false,
+                "id": "log_26a55215",
+                "returnValues": {
+                    "0": "0x0000000000000000000000000000000000000000",
+                    "1": "0xefeC0576f992fD13FE9Da328AE6aD807C0eCe4C0",
+                    "previousOwner": "0x0000000000000000000000000000000000000000",
+                    "newOwner": "0xefeC0576f992fD13FE9Da328AE6aD807C0eCe4C0"
+                },
+                "event": "OwnershipTransferred",
+                "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+                "raw": {
+                    "data": "0x",
+                    "topics": [
+                        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+                        "0x0000000000000000000000000000000000000000000000000000000000000000",
+                        "0x000000000000000000000000efec0576f992fd13fe9da328ae6ad807c0ece4c0"
+                    ]
+                }
+            },
+            "StakingContractCreated": {
+                "address": "0xefeC0576f992fD13FE9Da328AE6aD807C0eCe4C0",
+                "blockNumber": 4005215,
+                "transactionHash": "0x5f92511b6048ffc0e2f54f2421c0d75118e5502acd8ccef8637bbde9278663ec",
+                "transactionIndex": 1,
+                "blockHash": "0xd6b8be17b11c4f9d72e3ec4029dd8c935ca3fc6dbcd576ca78de1e95fa09afa3",
+                "logIndex": 1,
+                "removed": false,
+                "id": "log_f82778ce",
+                "returnValues": {
+                    "0": "0xd08dC31339A0D4890117819e5dceC7b5d0C0438E",
+                    "contractAddress": "0xd08dC31339A0D4890117819e5dceC7b5d0C0438E"
+                },
+                "event": "StakingContractCreated",
+                "signature": "0xa2d42bf84a8471f2a798696d782ea138fb0a0cee3a1233cff86d52614d045487",
+                "raw": {
+                    "data": "0x000000000000000000000000d08dc31339a0d4890117819e5dcec7b5d0c0438e",
+                    "topics": [
+                        "0xa2d42bf84a8471f2a798696d782ea138fb0a0cee3a1233cff86d52614d045487"
+                    ]
+                }
+            }
+        }
+    }
+}
