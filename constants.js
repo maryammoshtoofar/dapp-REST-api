@@ -24,4 +24,35 @@ const rewardRatios = {
   },
 };
 
-module.exports = { rewardRatios };
+const apiUrl = process.env.API_URL;
+const contractFactoryAddress = process.env.CONTRACT_FACTORY_ADDRESS;
+const dappTokenContractAddress = process.env.DAPP_TOKEN_CONTRACT;
+const privateKey = process.env.ERC20_ADMIN_WALLET;
+
+const ABI = {
+  tokenAbi:require("./ABI/tokenAbi.json"),
+  contractFactoryAbi:require("./ABI/contractFactoryAbi.json"),
+}
+const Web3 = require("web3");
+const web3 = new Web3(apiUrl);
+
+const dappTokenContract = new web3.eth.Contract(
+  ABI.tokenAbi,
+  dappTokenContractAddress
+);
+
+const stakingFactoryContract = new web3.eth.Contract(
+  ABI.contractFactoryAbi,
+  contractFactoryAddress
+);
+
+web3.eth.accounts.wallet.add(privateKey);
+const wallet = web3.eth.accounts.privateKeyToAccount("0x" + privateKey);
+module.exports = {
+  rewardRatios,
+  apiUrl,
+  contractFactoryAddress,
+  dappTokenContractAddress,
+  privateKey,
+  ABI
+};
