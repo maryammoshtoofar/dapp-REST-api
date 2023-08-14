@@ -1,3 +1,4 @@
+require("dotenv").config();
 const rewardRatios = {
   _100to2000: {
     _12: 5,
@@ -49,7 +50,11 @@ const stakingFactoryContract = new web3.eth.Contract(
 web3.eth.accounts.wallet.add(privateKey);
 const wallet = web3.eth.accounts.privateKeyToAccount("0x" + privateKey);
 module.exports = {
+  web3,
+  dappTokenContract,
+  stakingFactoryContract,
   rewardRatios,
+  wallet,
   apiUrl,
   contractFactoryAddress,
   dappTokenContractAddress,
