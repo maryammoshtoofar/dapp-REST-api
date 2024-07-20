@@ -9,7 +9,7 @@ This project is a RESTful API built with Node.js that interacts with smart contr
 To get started, clone the repository and install the necessary dependencies:
 
 ```bash
-git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/maryammoshtoofar/dapp-REST-api)
+git clone https://github.com/maryammoshtoofar/dapp-REST-api
 cd dapp-REST-api
 npm install
 npm run dev
